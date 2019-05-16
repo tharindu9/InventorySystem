@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category {
 	
@@ -14,7 +16,9 @@ public class Category {
 	@NotBlank(message="Name is mandotary")
 	String name;
 	@OneToMany(mappedBy ="category")
-	List<Type> types;
+	
+	@JsonIgnore
+	List<ItemType> types;
 	public Integer getId() {
 		return id;
 	}
@@ -27,10 +31,10 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Type> getTypes() {
+	public List<ItemType> getTypes() {
 		return types;
 	}
-	public void setTypes(List<Type> types) {
+	public void setTypes(List<ItemType> types) {
 		this.types = types;
 	}
 	
