@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Category page</title>
+
+<style>
+table {
+  margin-top : 5%;
+  margin-left:3%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<div class="addCategory">
+<form action="post">
+</form>
+</div>
+<div>
+ <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <th:block th:each="category : ${allCategory}">
+  <tr>
+  <td th:text="${category.id}"></td>
+    <td th:text="${category.name}" > </td>
+    <td> Update </td>
+    <td> <a th:href="@{'category' + ${category.id}}">Delete</a></td>
+  </tr>
+  </th:block>
+</table>
+</div>
+
+</body>
+</html>

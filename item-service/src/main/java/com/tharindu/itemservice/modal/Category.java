@@ -13,10 +13,9 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Integer id;
-	@NotBlank(message="Name is mandotary")
+	@Column(name="name" ,nullable = true , unique = true)
 	String name;
-	@OneToMany(mappedBy ="category")
-	
+	@OneToMany(mappedBy ="category" , cascade = CascadeType.ALL)
 	@JsonIgnore
 	List<ItemType> types;
 	public Integer getId() {
