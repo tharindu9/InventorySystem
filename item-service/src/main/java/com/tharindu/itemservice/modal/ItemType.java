@@ -48,6 +48,7 @@ public class ItemType {
 		this.name = name;
 	}
 
+	@JsonIgnore
 	public Category getCategory() {
 		return category;
 	}

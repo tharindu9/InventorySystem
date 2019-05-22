@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.tharindu.itemservice.modal.Category;
+import com.tharindu.itemservice.modal.ItemType;
 import com.tharindu.itemservice.repository.CategoryRepository;
 
 import javassist.tools.rmi.ObjectNotFoundException;
@@ -18,6 +19,9 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	@Override
 	public Category  save(Category category) {
+		for(ItemType itemType : category.getTypes()) {
+			itemType.setCategory(category);
+		}
 		return categoryRepository.save(category);
 	}
 	 

@@ -16,7 +16,6 @@ public class Category {
 	@Column(name="name" ,nullable = true , unique = true)
 	String name;
 	@OneToMany(mappedBy ="category" , cascade = CascadeType.ALL)
-	@JsonIgnore
 	List<ItemType> types;
 	public Integer getId() {
 		return id;
