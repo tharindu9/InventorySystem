@@ -10,5 +10,5 @@ public interface ItemService {
 	List<Item> fetchAllItems();
 	Item fetchItem(Long id);
 	Item updateItem(Item item);
-	void deleteItem(Item item);
+	void deleteItem(Long id);
 }

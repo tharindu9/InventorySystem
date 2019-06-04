@@ -25,4 +25,10 @@ export class ItemListComponent implements OnInit {
     })
   }
 
+  onDelete(id){
+    this.itemService.deletItem(id).subscribe(data=>{
+      console.log(data);
+    });
+  }
+
 }

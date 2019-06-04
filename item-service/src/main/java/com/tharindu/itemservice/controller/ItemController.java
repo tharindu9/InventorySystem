@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import com.tharindu.itemservice.modal.Item;
 import com.tharindu.itemservice.service.ItemService;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value="item")
 public class ItemController {
 
@@ -50,8 +53,9 @@ public class ItemController {
 			}
 	}
 	
-	@RequestMapping(value="item",method = RequestMethod.DELETE)
-	void deleteCategory(@RequestBody Item item) {
-		itemService.deleteItem(item);
+//	@RequestMapping(value="item/{id}",method = RequestMethod.DELETE)
+	 @DeleteMapping("item/{id}")
+	void deleteCategory(@PathVariable("id") Long id) {
+		itemService.deleteItem(id);
 	}
 }

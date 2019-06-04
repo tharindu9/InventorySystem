@@ -2,7 +2,7 @@
 <table class="table table-hover" style="margin-left: 1%">
     <thead>
       <th>Item Name</th>
-      <th>Brand</th>
+      <th>Type</th>
       <th>UOM</th>
       <th>Sales Price</th>
       <th>Unit Price</th>
@@ -17,7 +17,7 @@
         <td>{{item.uOM}}</td>
         <td>{{item.salesPrice}}</td>
         <td>{{item.unitPrice}}</td>
-         <td><button class="btn text-danger" (click)="onDelete(emp.id)"><i class="fa fa-trash"></i></button></td>
+         <td><button class="btn text-danger" (click)="onDelete(item.id)"><i class="fa fa-trash"></i></button></td>
          <td><a class="btn text-success" (click)="onDelete(emp.id)"><i class="fa fa-edit"></i></a></td>
       </tr>
     </tbody>
